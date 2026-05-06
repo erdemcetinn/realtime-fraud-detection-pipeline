@@ -1,17 +1,17 @@
 # Real-Time Fraud Detection Pipeline
 
-This project demonstrates how a bank's fraud detection system works under the hood — from training an ML model on real credit card transactions to deploying it as a production-grade microservice on AWS that processes live transaction streams, stores results, and triggers instant alerts.
+End-to-end ML pipeline that detects credit card fraud in real time — trained on 284,807 real transactions, deployed on AWS EKS, consuming live streams from SQS, persisting every result to RDS PostgreSQL, and triggering email alerts the moment fraud is confirmed.
 
-It covers the full journey: data exploration, class imbalance handling, model selection, containerization, cloud infrastructure provisioning with Terraform, Kubernetes deployment, and event-driven architecture with SQS and SNS. The same pipeline structure applies beyond fraud detection — anomaly detection, real-time risk scoring, content moderation, or any domain where you need to classify a high-volume stream of events and act on the results immediately.
+A full demonstration of how a bank's fraud detection system works: from raw data and model training all the way to production infrastructure. The same architecture applies to any high-volume classification problem — anomaly detection, risk scoring, content moderation.
 
-**What you can learn from this project:**
-- How to train an XGBoost model on a severely imbalanced dataset and why class weighting beats SMOTE in practice
-- How to deploy an ML model as a FastAPI microservice on Amazon EKS
-- How to build an event-driven pipeline with SQS (producer → queue → consumer)
-- How to provision a full AWS infrastructure (VPC, EKS, RDS, SQS, SNS, ECR) with Terraform in a single command
-- How IRSA gives Kubernetes pods secure AWS access without hardcoded credentials
+**Verified:** 10,000 transactions streamed → 19 fraud cases detected → email alerts received in real time → 2,217+ rows written to RDS PostgreSQL.
 
-**Verified end-to-end:** 10,000 transactions streamed → 19 fraud cases detected → email alerts received in real time → 2,217+ results written to RDS PostgreSQL.
+**What this covers:**
+- Imbalanced dataset handling — why class weighting beats SMOTE in practice
+- ML model deployment as a FastAPI microservice on Kubernetes
+- Event-driven pipeline with SQS (producer → queue → consumer)
+- Full AWS infrastructure provisioned with Terraform in a single command
+- IRSA for secure pod-level AWS access without hardcoded credentials
 
 ---
 
