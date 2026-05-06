@@ -139,6 +139,7 @@ python producer.py --csv creditcard.csv --limit 10000 --skip 5000
 | SNS | fraud-detection-alerts topic + email subscription |
 | ECR | Docker image registry |
 | IAM | IRSA roles for pod-level SQS + SNS access |
+| CloudWatch | Log group, dashboard (SQS throughput, fraud alerts), queue depth alarm |
 
 ---
 
