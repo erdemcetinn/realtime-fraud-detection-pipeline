@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scoring-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scoring-service
+  template:
+    metadata:
+      labels:
+        app: scoring-service
+    spec:
+      serviceAccountName: scoring-service-sa
+      containers:
+        - name: scoring-service
+          image: 452383571300.dkr.ecr.us-east-1.amazonaws.com/scoring-service:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SQS_QUEUE_URL
+              value: "https://sqs.us-east-1.amazonaws.com/452383571300/fraud-detection-transactions"
+            - name: SNS_TOPIC_ARN
+              value: "arn:aws:sns:us-east-1:452383571300:fraud-detection-alerts"
+            - name: RDS_HOST
+              value: "fraud-detection-db.cor8wuwkicc4.us-east-1.rds.amazonaws.com"
+            - name: RDS_USER
+              value: "fraudadmin"
+            - name: RDS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rds-secret
+                  key: password
+            - name: RDS_DB
+              value: "frauddb"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scoring-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: scoring-service
+  ports:
+    - port: 80
+      targetPort: 8000
