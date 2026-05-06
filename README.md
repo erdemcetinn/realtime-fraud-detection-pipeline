@@ -1,5 +1,7 @@
 # Real-Time Fraud Detection Pipeline
 
+![banner](banner.png)
+
 End-to-end ML pipeline that detects credit card fraud in real time — trained on 284,807 real transactions, deployed on AWS EKS, consuming live streams from SQS, persisting every result to RDS PostgreSQL, and triggering email alerts the moment fraud is confirmed.
 
 A full demonstration of how a bank's fraud detection system works: from raw data and model training all the way to production infrastructure. The same architecture applies to any high-volume classification problem — anomaly detection, risk scoring, content moderation.
