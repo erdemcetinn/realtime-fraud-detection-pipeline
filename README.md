@@ -17,6 +17,23 @@ A full demonstration of how a bank's fraud detection system works: from raw data
 
 ---
 
+## Results
+
+Real fraud detections from a live run — 10,000 transactions streamed, 19 fraud cases caught.
+
+<table>
+<tr>
+<td><img src="screenshots/fraud-alerts-phone.png" width="280"/></td>
+<td><img src="screenshots/scoring-logs.png" width="700"/></td>
+</tr>
+<tr>
+<td align="center">AWS SNS fraud alerts arriving in real time</td>
+<td align="center">Scoring service logs — fraud=True row highlighted</td>
+</tr>
+</table>
+
+---
+
 ## How it works
 
 ```
