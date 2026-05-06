@@ -1,6 +1,15 @@
 # Real-Time Fraud Detection Pipeline
 
-Detects credit card fraud in real time using XGBoost — trained on 284,807 real transactions, deployed on AWS EKS, consuming live streams from SQS, and triggering email alerts on confirmed fraud.
+This project demonstrates how a bank's fraud detection system works under the hood — from training an ML model on real credit card transactions to deploying it as a production-grade microservice on AWS that processes live transaction streams, stores results, and triggers instant alerts.
+
+It covers the full journey: data exploration, class imbalance handling, model selection, containerization, cloud infrastructure provisioning with Terraform, Kubernetes deployment, and event-driven architecture with SQS and SNS. The same pipeline structure applies beyond fraud detection — anomaly detection, real-time risk scoring, content moderation, or any domain where you need to classify a high-volume stream of events and act on the results immediately.
+
+**What you can learn from this project:**
+- How to train an XGBoost model on a severely imbalanced dataset and why class weighting beats SMOTE in practice
+- How to deploy an ML model as a FastAPI microservice on Amazon EKS
+- How to build an event-driven pipeline with SQS (producer → queue → consumer)
+- How to provision a full AWS infrastructure (VPC, EKS, RDS, SQS, SNS, ECR) with Terraform in a single command
+- How IRSA gives Kubernetes pods secure AWS access without hardcoded credentials
 
 **Verified end-to-end:** 10,000 transactions streamed → 19 fraud cases detected → email alerts received in real time → 2,217+ results written to RDS PostgreSQL.
 
