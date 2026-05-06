@@ -3,6 +3,7 @@ import json
 import threading
 import joblib
 import numpy as np
+
 import boto3
 import psycopg2
 from fastapi import FastAPI
