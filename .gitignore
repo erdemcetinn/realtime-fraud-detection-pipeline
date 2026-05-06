@@ -1,6 +1,5 @@
-# Model artifacts
-scoring-service/model.pkl
-scaler.pkl
+# Dataset
+
 
 # Dataset
 *.csv
